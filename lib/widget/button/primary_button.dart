@@ -9,12 +9,13 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      padding: EdgeInsets.all(16),
-      color: Color(0xff145C9E),
-      textColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(8),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(16),
+        primary: Color(0xff145C9E),
+        shape: RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(8),
+        ),
       ),
       onPressed: onPressed,
       child: Text(

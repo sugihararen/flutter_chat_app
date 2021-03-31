@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/widget/button/primary_button.dart';
 
 class ErrorDialog extends StatelessWidget {
   final String text;
@@ -12,13 +13,10 @@ class ErrorDialog extends StatelessWidget {
       ),
       title: Text(text),
       actions: <Widget>[
-        FlatButton(
-          child: Text(
-            '閉じる',
-            style: TextStyle(color: Colors.black),
-          ),
+        PrimaryButton(
+          text: '閉じる',
           onPressed: () => Navigator.of(context).pop(),
-        ),
+        )
       ],
     );
   }
