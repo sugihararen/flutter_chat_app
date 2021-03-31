@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class TodoForm extends StatelessWidget {
   final ChatRoom todo;
-  TodoForm({this.todo});
+  TodoForm({@required this.todo});
 
   Future<void> onPressed(
       BuildContext context, TodoFormModel todoFormModel) async {

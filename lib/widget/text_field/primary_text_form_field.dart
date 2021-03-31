@@ -9,11 +9,11 @@ class PrimaryTextFormField extends StatelessWidget {
   final Function(String) validator;
 
   PrimaryTextFormField({
-    this.hintText,
-    this.textEditingController,
+    @required this.hintText,
+    @required this.textEditingController,
     this.autofocus,
     this.obscureText,
-    this.validator,
+    @required this.validator,
   });
 
   @override

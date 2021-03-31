@@ -7,7 +7,7 @@ class ChatRoomTile extends StatelessWidget {
   final String userName;
   final String chatRoomId;
 
-  ChatRoomTile({this.userName, @required this.chatRoomId});
+  ChatRoomTile({@required this.userName, @required this.chatRoomId});
 
   @override
   Widget build(BuildContext context) {

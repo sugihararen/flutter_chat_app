@@ -5,7 +5,7 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
 
-  PrimaryButton({this.text, this.onPressed});
+  PrimaryButton({@required this.text, @required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
