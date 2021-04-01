@@ -23,11 +23,27 @@ class ChatRoomScreen extends StatelessWidget {
                     stream: chatRoomModel.chats,
                     builder: (BuildContext context, AsyncSnapshot snapshot) {
                       if (snapshot.hasData) {
-                        return Padding(
-                          padding: EdgeInsets.only(bottom: 80),
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 80),
                           child: ListView.builder(
+                            controller: chatRoomModel.scrollController,
                             itemCount: snapshot.data.docs.length,
-                            itemBuilder: (context, index) {
+                            itemBuilder: (BuildContext context, int index) {
+                              if (chatRoomModel.currentChatLength <
+                                  snapshot.data.docs.length) {
+                                chatRoomModel.currentChatLength =
+                                    snapshot.data.docs.length;
+                                Future.delayed(
+                                  Duration(milliseconds: 500),
+                                  () {
+                                    chatRoomModel.scrollController.jumpTo(
+                                      chatRoomModel.scrollController.position
+                                          .maxScrollExtent,
+                                    );
+                                  },
+                                );
+                              }
+
                               return MessageTile(
                                 message: snapshot.data.docs[index]["message"],
                                 sendByMe: Provider.of<AuthRepository>(context,

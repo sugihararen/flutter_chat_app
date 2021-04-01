@@ -13,11 +13,24 @@ class ChatRoomModel extends ChangeNotifier {
   }
 
   Stream<QuerySnapshot> chats;
+  int currentChatLength = 0;
   TextEditingController messageEditingController = TextEditingController();
+  ScrollController scrollController = ScrollController();
 
-  addMessage(BuildContext context, String chatRoomId) {
+  void addMessage(BuildContext context, String chatRoomId) {
     ChatRoomRepository()
         .addMessage(context, messageEditingController.text, chatRoomId);
     messageEditingController.text = "";
+
+    Future.delayed(
+      Duration(milliseconds: 100),
+      () {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          curve: Curves.ease,
+          duration: Duration(milliseconds: 500),
+        );
+      },
+    );
   }
 }
